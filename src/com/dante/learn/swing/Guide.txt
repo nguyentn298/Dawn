@@ -1,0 +1,9 @@
+==== Java Swing =====
+
+1/ Using Window builder to desgin UI
+2/ Using layout = gridbarlayout to hold on UI when zoom in or zoom out
+3/ Using tablemodel to add data into JTable
+4/ Run app by Mainform.java (it's contanin multi panel)
+5/ Using inset of GridBagConstrain to margin panel:
+		GridBagConstraints gbcChooseFileTextField = new GridBagConstraints();
+		gbcChooseFileTextField.insets = new Insets(0, 0, 5, 5);

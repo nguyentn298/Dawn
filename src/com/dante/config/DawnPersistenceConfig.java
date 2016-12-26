@@ -27,6 +27,10 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 		transactionManagerRef = "ideaTransactionManager")
 public class DawnPersistenceConfig {
 
+	//	entityManagerFactoryRef:
+	//	Explicitly wire the EntityManagerFactory to be used with the repositories being detected by the repositories element. 
+	//	Usually used if multiple EntityManagerFactory beans are used within the application. 
+	//	If not configured we will automatically lookup the EntityManagerFactory bean with the name entityManagerFactory in the ApplicationContext.
 		private static final String HIBERNATE_MY_SQL5_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
 
 		private static final String DAWN_SCAN_PACKAGE = "com.dante.db";

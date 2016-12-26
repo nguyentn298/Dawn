@@ -6,8 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.dante.db.entity.Product;
 
-// It's main repository, use CrudRepository to perform a CrudRepository CRUD
-// Extend ProductCustomRepository.java to get entityManagerFactory (because ProductCustomRepository extends IBaseRepository)
+// It's main repository
+// Extend 2 type: custom class (custom define) and CrudRepository (already define)
 public interface ProductRepository extends ProductCustomRepository, CrudRepository<Product, Integer> {
 
 	@Query("FROM Product product WHERE productId = ?")

@@ -54,10 +54,13 @@ public abstract class BaseCustomRepository<E, K extends Serializable> implements
 	public BaseCustomRepository() {
 
 		// Get EntityManagerFactory of class: DawnCustomRepository
+		// Get parents is extends (ex: A extends B, B will be get.)
 		Type type = getClass().getGenericSuperclass();
+//		getClass() = class com.dante.db.repository.ProductRepositoryImpl
 //		getClass().getGenericSuperclass() = com.dante.db.repository.DawnCustomRepository<com.dante.db.entity.Product, java.lang.Integer>
 //		type = com.dante.db.repository.DawnCustomRepository<com.dante.db.entity.Product, java.lang.Integer>
 		
+		System.out.println("This is getClass() = " + getClass());
 		System.out.println("This is generic super class = " + getClass().getGenericSuperclass());
 		System.out.println("This is type = " + type);
 		System.out.println();
@@ -75,10 +78,6 @@ public abstract class BaseCustomRepository<E, K extends Serializable> implements
 			System.out.println("This is genericSuperclass.getActualTypeArguments()[0] = " + genericSuperclass.getActualTypeArguments()[0]);
 			System.out.println("This is entityClass = " + entityClass);
 			
-
-
-			
-
 		}
 	}
 

@@ -47,6 +47,9 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		Dynamic servlet = servletContext.addServlet("dispatcher",
 				new DispatcherServlet(rootContext));
 		servlet.addMapping("/");
+		
+		// using for JBoss server, example: http://localhost:8080/Dawn/productSearch.sp
+//		servlet.addMapping("*.sp");
 		servlet.setLoadOnStartup(1);
 
 	}

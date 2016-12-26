@@ -51,7 +51,6 @@ public class HelloController {
 	
 	@RequestMapping(value = "productSearch", method = RequestMethod.GET)
 	public String searchProduct2() {
-		
 		return "product";
 	}
 	

@@ -1,0 +1,11 @@
+Caused by: java.lang.NoSuchMethodError: javax.persistence.Table.indexes()[Ljavax/persistence/Index;
+==========================================================================================================
+If you are using Jboss 7.1.1, jboss already has hibernate-jpa-2.0 in its classpath, so during runtime it uses the one in its classpath, not the one you've deployed with your app , to point jboss to the hibernate-jpa-2.1 do the following (hibernate-core-4.3.11.Final.jar and hibernate-jpa-2.1-api-1.0.0.Final.jar):
+
+1/ copy hibernate-jpa-2.1-api-1.0.0.final.jar to the following directory : jboss-as-7.1.1.Final/modules/javax/persistence/api/main
+2/ open module.xml and change the resource-root as follows :
+
+3/ resource-root path="hibernate-jpa-2.1-api-1.0.0.final.jar" (pointing it to jpa 2.1)
+re-compile and re-deploy your app, then you are good to go
+
+============================================================================================================

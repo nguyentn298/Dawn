@@ -1,7 +1,11 @@
 package com.dante.db.entity;
 
-import org.apache.commons.lang3.builder.CompareToBuilder;
-import org.apache.commons.lang3.builder.EqualsBuilder;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author dante
@@ -11,10 +15,22 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  * @author dante
  *
  */
+@Entity
+@Table(name="client")
 public class Client implements Comparable<Client> {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "CLIENT_ID")
 	private int id;
+	
+	@Column(name="CLIENT_NAME")
 	private String name;
+	
+	@Column(name="CLIENT_AGE")
 	private int age;
+	
+	@Column(name="CLIENT_MONEY")
 	private double money;
 
 	public Client(int id, String name, int age, double money) {

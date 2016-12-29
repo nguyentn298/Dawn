@@ -45,7 +45,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 //		registry.addResourceHandler("/decorators/**").addResourceLocations("/decorators/");
 	}
 	
-	// ReloadableResourceBundleMessageSource place under WEB-INF, after ant: /WEB-INF/classes/com/dante/config/messages (messages = messages.properties)
+	// ReloadableResourceBundleMessageSource place under WEB-INF, source.setBasename("/WEB-INF/classes/com/dante/config/messages");
+	// because, after build ant, it has path: D:\Servers\apache-tomcat-7.0.62\webapps\Dawn\WEB-INF\classes\com\dante\config
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();

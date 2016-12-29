@@ -11,9 +11,9 @@ here...
 
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet" type="text/css" />
 
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+<script src="${contextPath}/resources/js/jquery.min.js"></script>
+<script src="${contextPath}/resources/js/jquery.validate.min.js"></script>
+<script src="${contextPath}/resources/js/additional-methods.min.js"></script>
 <sitemesh:write property='head' />
 <!-- <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css"> -->
 </head>

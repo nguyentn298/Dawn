@@ -23,10 +23,10 @@ public class TestDAO {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	public static void main(String[] args) {
-		TestDAO test = new TestDAO();
-		test.findByProductId(1);
-	}
+//	public static void main(String[] args) {
+//		TestDAO test = new TestDAO();
+//		test.findByProductId(1);
+//	}
 	
 	@Test
 	public void findByProductId(int id) {

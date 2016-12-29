@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "testAjax")
-public class TestAjax {
+public class AjaxController {
 
 	@RequestMapping(value = "testLoad", method = RequestMethod.GET)
 	public String loadAjax() {

@@ -45,10 +45,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 //		registry.addResourceHandler("/decorators/**").addResourceLocations("/decorators/");
 	}
 	
+	// ReloadableResourceBundleMessageSource place under WEB-INF, after ant: /WEB-INF/classes/com/dante/config/messages (messages = messages.properties)
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-		source.setBasename("messages");
+		source.setBasename("/WEB-INF/classes/com/dante/config/messages");
+//		source.setBasename("/WEB-INF/messages");
 //		source.setUseCodeAsDefaultMessage(true);
 		return source;
 	}

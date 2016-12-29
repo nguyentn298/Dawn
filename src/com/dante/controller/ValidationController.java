@@ -18,6 +18,7 @@ public class ValidationController {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	
 	@RequestMapping(value = "productSearch", method = RequestMethod.GET)
 	public String searchProduct(Model model) {
 		model.addAttribute("product", new Product()); 

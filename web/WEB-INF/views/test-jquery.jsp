@@ -45,9 +45,9 @@
 			
 		});
 
+		// direct another path
 		$("button.test-location").click(function(){
 			window.location = "${contextPath}/myStringAgain";
-			
 		});
 	})
 </script>
@@ -68,7 +68,9 @@
 		Full url: <p class="my-url"></p>
 		<button class="test-location">Move</button>
 	</div>
+	
 	<br/><br/>
+	
 	<h2>This is Ajax with post</h2>
 		Name: <input type="text" class="post-name" name="getName" /><br/>
 		Age: <input type="text" class="post-age" name="getAge" /><br/>

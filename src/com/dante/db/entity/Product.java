@@ -1,6 +1,8 @@
 package com.dante.db.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,11 @@ import javax.persistence.Table;
 @Table(name = "product")
 public class Product implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "PRODUCT_ID")
@@ -24,6 +31,14 @@ public class Product implements Serializable{
 	@Column(name = "PRODUCT_QUANTITY")
 	private int productQuantity;
 
+	@Column(name = "PRODUCT_COST")
+	private Timestamp productCost;
+	
+	@Column(name = "DATE_CREATED")
+	private Timestamp productDateCreated;
+	
+	@Column(name = "DATE_UPDATED")
+	private Date productDateUpdated;
 	public Product() {
 
 	}
@@ -33,6 +48,42 @@ public class Product implements Serializable{
 		this.productId = productId;
 		this.productName = productName;
 		this.productQuantity = productQuantity;
+	}
+
+	public Product(int productId, String productName, int productQuantity,
+			Timestamp productCost, Timestamp productDateCreated,
+			Date productDateUpdated) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productQuantity = productQuantity;
+		this.productCost = productCost;
+		this.productDateCreated = productDateCreated;
+		this.productDateUpdated = productDateUpdated;
+	}
+
+	public Timestamp getProductCost() {
+		return productCost;
+	}
+
+	public void setProductCost(Timestamp productCost) {
+		this.productCost = productCost;
+	}
+
+	public Timestamp getProductDateCreated() {
+		return productDateCreated;
+	}
+
+	public void setProductDateCreated(Timestamp productDateCreated) {
+		this.productDateCreated = productDateCreated;
+	}
+
+	public Date getProductDateUpdated() {
+		return productDateUpdated;
+	}
+
+	public void setProductDateUpdated(Date productDateUpdated) {
+		this.productDateUpdated = productDateUpdated;
 	}
 
 	public int getProductId() {

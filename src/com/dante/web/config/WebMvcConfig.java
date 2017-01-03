@@ -49,11 +49,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	// because, after build ant, it has path: D:\Servers\apache-tomcat-7.0.62\webapps\Dawn\WEB-INF\classes\com\dante\config
 	@Bean
 	public MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-		source.setBasename("/WEB-INF/classes/com/dante/config/messages");
-//		source.setBasename("/WEB-INF/messages");
-//		source.setUseCodeAsDefaultMessage(true);
-		return source;
+		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+		messageSource.setBasename("/WEB-INF/classes/com/dante/config/messages");
+//		messageSource.setDefaultEncoding("UTF-8");
+//		messageSource.setUseCodeAsDefaultMessage(true);
+		return messageSource;
 	}
 	
 //	@Bean

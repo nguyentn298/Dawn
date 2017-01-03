@@ -10,10 +10,18 @@ here...
 
 
 <link href="${contextPath}/resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="${contextPath}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="${contextPath}/resources/css/bootstrap/bootstrap-datepicker3-1-4-1.css" rel="stylesheet" type="text/css" />
 
 <script src="${contextPath}/resources/js/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/jquery.validate.min.js"></script>
 <script src="${contextPath}/resources/js/additional-methods.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="${contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
+<script src="${contextPath}/resources/js/bootstrap/bootstrap-datepicker-1-4-1.min.js"></script>
+
+
 <sitemesh:write property='head' />
 <!-- <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css"> -->
 </head>

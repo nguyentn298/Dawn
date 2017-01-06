@@ -116,6 +116,8 @@
 					<td>Quantity: ${productQuantity}</td>
 				</tr>
 			</c:if>
+			
+			<p>==============================================</p><br/>
 		</div>
 	</div>
 </body>	

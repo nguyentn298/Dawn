@@ -1,24 +1,25 @@
 package com.dante.controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dante.controller.validators.ProductValidator;
 import com.dante.db.entity.Product;
 import com.dante.db.repository.ProductRepository;
+import com.dante.db.service.PagingService;
 import com.dante.util.DateUtil;
 
 @Controller
@@ -26,6 +27,9 @@ public class ValidationController {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private PagingService pagingService;
 	
 	@InitBinder
 	private void dateBinder(WebDataBinder binder) {
@@ -81,5 +85,21 @@ public class ValidationController {
 			
 			return "product";
 		}
+	}
+	
+	// Table
+	@RequestMapping(value = "/pages/{pageNumber}", method = RequestMethod.GET)
+	public String getProductPage(@PathVariable Integer pageNumber, Model model) {
+	    Page<Product> page = pagingService.getAllProduct(pageNumber);
+	    int current = page.getNumber() + 1;
+	    int begin = Math.max(1, current - 5);
+	    int end = Math.min(begin + 10, page.getTotalPages());
+	    
+	    model.addAttribute("productTables", page.getContent());
+	    model.addAttribute("productPage", page);
+	    model.addAttribute("beginIndex", begin);
+	    model.addAttribute("endIndex", end);
+	    model.addAttribute("currentIndex", current);
+	    return "product-list";
 	}
 }

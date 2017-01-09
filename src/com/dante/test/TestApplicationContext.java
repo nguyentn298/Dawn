@@ -1,10 +1,7 @@
 package com.dante.test;
 
-import java.net.URL;
-
 import javax.annotation.PostConstruct;
 
-import org.apache.log4j.xml.DOMConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +9,6 @@ import org.springframework.context.annotation.Import;
 
 import com.dante.config.DawnPersistenceConfig;
 import com.dante.config.ResourcesConfig;
-import com.dante.constants.ConfigConstants;
 import com.dante.service.IConfigurationManager;
 
 @Configuration

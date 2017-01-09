@@ -50,7 +50,7 @@ public class DawnPersistenceConfig {
 			// JpaVendorAdapter implementation for Hibernate EntityManager
 			HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 			vendorAdapter.setGenerateDdl(false);
-			vendorAdapter.setShowSql(false);
+			vendorAdapter.setShowSql(true);
 			vendorAdapter.setDatabasePlatform(HIBERNATE_MY_SQL5_DIALECT);
 
 			LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();

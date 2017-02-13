@@ -22,6 +22,7 @@ public class TestComparatorAndComparable {
 		
 		System.out.println();
 		testComparable(clients);
+		
 	}
 	
 	public static void testComparable(List<Client> clients) {

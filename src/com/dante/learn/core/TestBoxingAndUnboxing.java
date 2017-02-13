@@ -6,8 +6,10 @@ public class TestBoxingAndUnboxing {
 		Integer b = 5;
 		Integer c = new Integer(5);
 		Byte d = 5;
+		int e = 5;
 		System.out.println(a.equals(b));
 		System.out.println(a.equals(c));
 		System.out.println(a.equals(d));
+		System.out.println(a.equals(e));
 	}
 }

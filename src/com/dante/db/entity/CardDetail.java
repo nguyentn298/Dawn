@@ -34,7 +34,6 @@ public class CardDetail {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CLIENT_ID")
 	private Client client;
-	
 
 	@Column(name = "NUMBER")
 	private int number;
@@ -44,6 +43,12 @@ public class CardDetail {
 
 	public CardDetail() {
 
+	}
+
+	public CardDetail(Client client, int number) {
+		super();
+		this.client = client;
+		this.number = number;
 	}
 
 	public CardDetail(Card card, Client client, int number) {

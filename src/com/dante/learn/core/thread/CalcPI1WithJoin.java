@@ -34,7 +34,6 @@ public class CalcPI1WithJoin {
 			e.printStackTrace();
 		}
 		
-		
 		System.out.println("number: " + mt.pi);
 		System.out.println("number 4: " + mt4.pi);
 	}

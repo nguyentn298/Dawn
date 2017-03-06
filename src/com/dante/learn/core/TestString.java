@@ -13,10 +13,87 @@ public class TestString {
 //		insertParamsToUrl();
 //		uppercaseFirstChar();
 //		removeString();
-		splitLimit();
+//		splitLimit();
+//		identicalScope();
+//		countTime();
+//		internString();
+//		myNumber();
+		String test = "abc";
+		String test2 = "2";
+		int test3 = Integer.parseInt(test);
+		int test4 = Integer.parseInt(test2);
+		
+		boolean test5 = (test3 < 3);
+		System.out.println(test5);
+	}
+	
+	public static void myNumber() {
+		int a = 0;
+		System.out.println("a: " + a);
+		int b = a++;
+		System.out.println("a: " + a);
+		System.out.println("b: " + b);
+		
+		int c = 0;
+		System.out.println("c: " + c);
+		int d = ++c;
+		System.out.println("c: " + c);
+		System.out.println("d: " + d);
+		
+		
 		
 	}
+	public static void internString() {
+//		Basically doing String.intern() on a series of strings will ensure that all strings having same contents share same memory. 
+//		So if you have list of names where 'john' appears 1000 times, by interning you ensure only one 'john' is actually allocated memory.
+//
+//		This can be useful to reduce memory requirements of your program. 
+//		But be aware that the cache is maintained by JVM in permanent memory pool 
+//		which is usually limited in size compared to heap so you should not use intern if you don't have too many duplicate values.
+		String variables[] = new String[50000];
+		
+		long startTime1 = System.currentTimeMillis();
+		for (int i = 0; i < 50000; i++) {
+			variables[i] = new String("hello");
+		}
+		
+		long endTime1 = System.currentTimeMillis();
+		System.out.println("No Intern: " + (endTime1 - startTime1) + " milli seconds");
+		
+		long startTime0 = System.currentTimeMillis();
+		for (int i = 0; i < 50000; i++) {
+			variables[i] = new String("hello");
+			variables[i] = variables[i].intern();
+		}
+		
+		long endTime0 = System.currentTimeMillis();
+		System.out.println("With Intern: " + (endTime0 - startTime0) + " milli seconds");
+		
+		
 
+
+	}
+	
+	public static void countTime() {
+		long startTime = System.currentTimeMillis();
+		for(int i = 0; i < 1000000; i++) {
+			String test = "test";
+		}
+		long endTime = System.currentTimeMillis();
+		System.out.println((endTime - startTime) + " milli seconds");
+	}
+	
+	public static void identicalScope() {
+		String test1 = "Hello world";
+		String test2 = "Hi world";
+		int numbertTest1 = test1.indexOf("w");
+		int numbertTest2 = test2.indexOf("w");
+		
+		// 5 is lengh of compared string
+		boolean match = test1.regionMatches(numbertTest1, test2, numbertTest2, 5);
+		System.out.println(match);
+	}
+	
 	public static void splitLimit() {
 		String str = "jan-feb-march";
 		String[] temp;

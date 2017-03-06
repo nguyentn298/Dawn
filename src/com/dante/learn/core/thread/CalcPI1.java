@@ -5,7 +5,6 @@ public class CalcPI1 {
 		MyThread mt = new MyThread();
 		mt.start();
 		while(mt.isAlive()) {
-			
 		
 			try {
 				Thread.sleep(10); // Sleep for 10 milliseconds

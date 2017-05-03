@@ -18,13 +18,7 @@ public class TestString {
 //		countTime();
 //		internString();
 //		myNumber();
-		String test = "abc";
-		String test2 = "2";
-		int test3 = Integer.parseInt(test);
-		int test4 = Integer.parseInt(test2);
 		
-		boolean test5 = (test3 < 3);
-		System.out.println(test5);
 	}
 	
 	public static void myNumber() {

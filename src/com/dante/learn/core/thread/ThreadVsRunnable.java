@@ -43,14 +43,17 @@ public class ThreadVsRunnable {
 		Thread t3 = new Thread(rc);
 		t3.start();
 
+		System.out.println();
 		new Thread(new Runnable() {
 			
 			@Override
 			public void run() {
-				System.out.println("Test runable");
+				System.out.println("Test Runnable without implement Runnable");
 				
 			}
 		}).start();
+		System.out.println();
+		
 //		t4.start();
 		// Creating new instance for every thread access.
 		ExtendsThread tc1 = new ExtendsThread();

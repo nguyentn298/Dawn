@@ -43,6 +43,9 @@ public class TestRegex {
 		String newString = "cat";
 		String replaceString = oldString.replaceFirst(regex, newString);
 		System.out.println(replaceString);
+		
+		String test = testPosition("0089705941_ImagedLoanFile_pbm-slacy_20141211_115612047", "(\\d+)[_](\\w+)");
+		System.out.println("Test: " + test);
 	}
 	
 	private static String removeScript(String content, String sregex) {
@@ -60,5 +63,16 @@ public class TestRegex {
 		}
 		
 		return null;
+	}
+	
+	public static String testPosition(String content, String sregex) {
+		Pattern pattern = Pattern.compile(sregex);
+		Matcher matcher = pattern.matcher(content);
+		String loanNumber = "";
+		if (matcher.find()) {
+			loanNumber = matcher.group(1);
+		}
+		
+		return loanNumber;
 	}
 }

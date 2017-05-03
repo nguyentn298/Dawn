@@ -2,17 +2,79 @@ package com.dante.learn.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 public class TestCollection {
 	public static void main(String[] args) {
 //		testQueue();
 //		convertMapToList();
 //		getIndexOfList();
-		testQueue();
+//		testQueue();
+//		compareMap();
+//		joinList();
+		convertListToArray();
+	}
+	
+	public static void joinList() {
+		List<String> list1 = new ArrayList<String>() {
+			{
+				add("1");
+				add("2");
+				add("3");
+			}
+		};
+		
+		Set<String> list2 = new HashSet<String>() {
+			{
+				add("6");
+				add("4");
+				add("9");
+			}
+		};
+//		List<String> newList = new ArrayList<String>(list1);
+		list1.addAll(list2);
+		
+		for (String string : list1) {
+			System.out.println(string);
+		}
+	}
+	
+	public static void compareMap() {
+		Map<String, String> mapA = new HashMap<String, String>() {
+			{
+				put("2", "Jarvan");
+				put("3", "Garen");
+				put("1", "Xinzhao");
+				put("4", "AAAA");
+			}
+		};
+		
+		Map<String, String> mapB = new HashMap<String, String>() {
+			{
+				put("2", "Jarvan");
+				put("3", "Garen");
+				put("1", "Xinzhao");
+				put("5", "BBB");
+			}
+		};
+		
+		Set<String> keysInA = new HashSet<String>(mapA.keySet());
+		Set<String> keysInB = new HashSet<String>(mapB.keySet());
+		Set<String> inANotB = new HashSet<String>(keysInA);
+		inANotB.removeAll(keysInB);
+		
+		System.out.println("inANotB: " + inANotB);
+		System.out.println(mapA);
+		
+		for (String string : inANotB) {
+			mapA.remove(string);
+		}
+		System.out.println(mapA);
 	}
 	
 	public static void getIndexOfList() {
@@ -43,6 +105,28 @@ public class TestCollection {
 		for (String string : list) {
 			System.out.println("String: " + string);
 		}
+		System.out.println("My List: " + list);
+	}
+	
+	public static void convertListToArray() {
+		List<String> list = new ArrayList<String>() {
+			{
+				add("test3");
+				add("test9");
+				add("test5");
+			}
+		};
+		String[] strs = list.toArray(new String[list.size()]);
+		System.out.println(strs);
+		StringBuffer loanBatchIds = new StringBuffer();
+		for (int i = 0; i < list.size(); i++) {
+			if(i == list.size() - 1) {
+				loanBatchIds.append(list.get(i));
+				break;
+			}
+			loanBatchIds.append(list.get(i)).append(",");
+		}
+		System.out.println("Buffer: " + loanBatchIds);
 	}
 	
 	public static void testQueue() {

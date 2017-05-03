@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS menu_item_temp;
+
 CREATE TABLE menu_item_temp (
   `PARENT_ID` INT(11) DEFAULT NULL,
   `NAME` VARCHAR(100) NOT NULL,

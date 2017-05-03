@@ -1,0 +1,8 @@
+1/ What happens if we call the run() method instead of start() method
+
+Because start() will do it as a separate thread. If you were to just call run(), that would be part of your thread (i.e., a function call).
+
+And, given that your thread may be an infinite loop waiting for work, that would be a bad thing.
+2/ Difference of extends Thread and implements Runnable:
+	* Inheritance
+	* Share work (check ThreadVsRunnable.java for more information)

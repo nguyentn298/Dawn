@@ -1,21 +1,16 @@
 package com.dante.learn.core;
 
 import java.io.File;
-import java.io.IOException;
 
 public class TestFile {
 	public static void main(String[] args) {
 //		getParentFile();
 //		createFile();
-		File file = new File("D:\\Nguyen\\test\\abc\\xyz");
-		if(!file.exists()) {
-			System.out.println("false");
-			file.mkdirs();
-		} else {
-			System.out.println("Yes");
-		}
+		System.out.println(System.getProperty("user.dir"));
 		
 	}
+	
+
 	
 	public static void listFolderInFolder() {
 		File file = new File("D:\\Nguyen\\test");

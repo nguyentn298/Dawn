@@ -1,0 +1,89 @@
+$('select[multiple]').multiselect({
+02
+ 
+03
+// text to use in dummy input
+04
+placeholder   : '',   
+05
+ 
+06
+// how many columns should be use to show options
+07
+columns       : 1, 
+08
+ 
+09
+// include option search box  
+10
+search        : false,   
+11
+ 
+12
+// search filter options
+13
+searchOptions : {
+14
+  default      : 'Search', // search input placeholder text
+15
+  showOptGroups: false     // show option group titles if no options remaining
+16
+},    
+17
+ 
+18
+// add select all option
+19
+selectAll     : false,
+20
+ 
+21
+// select entire optgroup  
+22
+selectGroup   : false, 
+23
+ 
+24
+// minimum height of option overlay
+25
+minHeight     : 200,  
+26
+ 
+27
+// maximum height of option overlay
+28
+maxHeight     : null, 
+29
+ 
+30
+// display the checkbox to the user
+31
+showCheckbox  : true, 
+32
+ 
+33
+// options for jquery.actual
+34
+jqActualOpts  : {},   
+35
+ 
+36
+// maximum width of option overlay (or selector)
+37
+maxWidth      : null,
+38
+ 
+39
+// minimum number of items that can be selected
+40
+minSelect     : false,
+41
+ 
+42
+// maximum number of items that can be selected
+43
+maxSelect     : false,
+44
+ 
+45
+});

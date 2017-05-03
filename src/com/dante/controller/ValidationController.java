@@ -6,6 +6,8 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dante.controller.validators.ProductValidator;
 import com.dante.db.entity.Product;
@@ -90,16 +93,55 @@ public class ValidationController {
 	// Table
 	@RequestMapping(value = "/pages/{pageNumber}", method = RequestMethod.GET)
 	public String getProductPage(@PathVariable Integer pageNumber, Model model) {
-	    Page<Product> page = pagingService.getAllProduct(pageNumber);
-	    int current = page.getNumber() + 1;
-	    int begin = Math.max(1, current - 5);
-	    int end = Math.min(begin + 10, page.getTotalPages());
-	    
-	    model.addAttribute("productTables", page.getContent());
-	    model.addAttribute("productPage", page);
-	    model.addAttribute("beginIndex", begin);
-	    model.addAttribute("endIndex", end);
-	    model.addAttribute("currentIndex", current);
-	    return "product-list";
+		Page<Product> page = pagingService.getAllProduct(pageNumber);
+		int current = page.getNumber() + 1;
+		int begin = Math.max(1, current - 5);
+		int end = Math.min(begin + 10, page.getTotalPages());
+
+		model.addAttribute("productTables", page.getContent());
+		model.addAttribute("productPage", page);
+		model.addAttribute("beginIndex", begin);
+		model.addAttribute("endIndex", end);
+		model.addAttribute("currentIndex", current);
+		return "product-list";
+	}
+	
+	/**
+	 * FIX ME
+	 * Table with model and view must be object to return orderType, orderColumn
+	 */
+	@RequestMapping(value = "/getOrderPage/{pageNumber}", method = RequestMethod.GET)
+	public String getProductPage(Model model, 
+			@RequestParam("pageNumber") Integer pageNumber,
+			@RequestParam("orderType") String orderType,
+			@RequestParam("orderColumn") String orderColumn) {
+		
+		if(pageNumber == null) {
+			pageNumber = 0;
+		}
+		
+		/**
+		 * 1/ org.springframework.beans.support.PageListHolder get all datas and show all datas. (slowly)
+		 * 2/ org.springframework.data.domain.Page get by a part of data and show it on 1 page. (quickly)
+		 */
+		Page<Product> page = pagingService.getAllProduct(pageNumber, orderType, orderColumn);
+
+		Sort pageSort = page.getSort();
+		Order myOrder = pageSort.getOrderFor(orderColumn);
+
+		String orderCurrentType = (myOrder.isAscending()) ? "ASC" : "DESC";
+
+		int current = page.getNumber() + 1;
+		int begin = Math.max(1, current - 5);
+		int end = Math.min(begin + 10, page.getTotalPages());
+		
+		model.addAttribute("productTables", page.getContent());
+		model.addAttribute("productPage", page);
+		model.addAttribute("beginIndex", begin);
+		model.addAttribute("endIndex", end);
+		model.addAttribute("currentIndex", current);
+
+		model.addAttribute("orderCurrentType", orderCurrentType);
+		return "product-list-order";
 	}
 }

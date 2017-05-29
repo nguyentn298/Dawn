@@ -14,20 +14,29 @@ public class TestGenericMethod {
 	 * 	Generic for array
 	 */
 
-	public static <T> void printArray(T[] inputArray) {
+	// If you want to use parameter with generic, you must declare parameter after modifier like <ThisIsDantesGeneric>
+	// Declare generic to use parameter
+	// can use any parameter for generic method like <ThisIsDantesGeneric, abc, hehe>
+	// Method return ThisIsDantesGeneric
+	public static <ThisIsDantesGeneric> ThisIsDantesGeneric printArray(ThisIsDantesGeneric[] inputArray) {
 		// Hien thi cac phan tu mang
-		for (T element : inputArray) {
+		for (ThisIsDantesGeneric element : inputArray) {
 			System.out.printf("%s, ", element);
+			
 		}
 		System.out.println();
+		
+		// Method return ThisIsDantesGeneric
+		ThisIsDantesGeneric testReturn = inputArray[0];
+		return testReturn;
 	}
 
 	/*
 	 * 	Generic for list int or String
 	 */
 
-	public static <T> void printList(List<T> list) {
-		for (T t : list) {
+	public static <Hehe> void printList(List<Hehe> list) {
+		for (Hehe t : list) {
 			System.out.println("field: " + t);
 			System.out.println();
 		}

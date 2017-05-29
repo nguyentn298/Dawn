@@ -8,20 +8,103 @@ import org.springframework.util.StringUtils;
 
 public class TestString {
 	public static void main(String[] args) {
-//		TestString.tokenString();
-//		addParamsToUrl();
-//		insertParamsToUrl();
-//		uppercaseFirstChar();
-//		removeString();
-//		splitLimit();
-//		identicalScope();
-//		countTime();
-//		internString();
-//		myNumber();
+		/*
+		 * Use StringTokenizer to merge String by delimiter
+		 */
+		System.out.println("================================TestString.tokenString()=======================================");
+		TestString.tokenString();
+		System.out.println();
+		/*
+		 * add param to url
+		 * url = localhost:8080/Idea
+		 * add :"?"
+		 * add param : key + "=" + value
+		 */
+		System.out.println("================================addParamsToUrl()=======================================");
+		addParamsToUrl();
+		System.out.println();
+		/*
+		 * Use substring() to insert string to string
+		 */
+		System.out.println("================================insertParamsToUrl()=======================================");
+		insertParamsToUrl();
+		System.out.println();
+		/*
+		 * Use subString(0, 1) to get first letter
+		 * Use toUpperCase() to uppercase first letter
+		 * User subString(1) to merge first letter with remain letter
+		 */
+		System.out.println("================================uppercaseFirstChar()=======================================");
+		uppercaseFirstChar();
+		System.out.println();
+		/*
+		 * Use subString() to remove a specific String
+		 * Use replace()   to remove all specific Strings
+		 */
+		System.out.println("================================removeString()=======================================");
+		removeString();
+		System.out.println();
+		/*
+		 * Limit for split: str.split(delimeter, 3);
+		 */
+		System.out.println("================================splitLimit()=======================================");
+		splitLimit();
+		System.out.println();
+		/*
+		 * Compare a specific region of String A to a specific region of String B
+		 * Ex: xxxA1xxx and xA2x
+		 * ==> A1.indexOf() = 3, A2.indexOf() = 1
+		 *   boolean match = A1.regionMatches(3, A2, 1, 5) = true;
+		 *   5 is lenght of string2
+		 */
+		System.out.println("================================identicalScope()=======================================");
+		identicalScope();
+		System.out.println();
+		/*
+		 * Use currentTimeMillis() to count start and end time
+		 */
+		System.out.println("================================countTime()=======================================");
+		countTime();
+		System.out.println();
+		/*
+		 * Use String.intern() when many value with same value to share same memory (increase perfomance)
+		 */
+		System.out.println("================================internString()=======================================");
+		internString();
+		System.out.println();
+		/*
+		 * a= 0
+		 * a++ ==> a = 1 But b = a++ ==> b = 0
+		 * ++a ==> a = 1 But b = ++a ==> b = 1
+		 */
+		System.out.println("================================comparePlusCharater()=======================================");
+		comparePlusCharater();
+		System.out.println();
+		
+		/*
+		 * Convert list to string by delimiter
+		 * Ex: List = [this, is, a, cat]
+		 * StringUtils.collectionToDelimitedString(list, " ", "(", ")"); ==> String test = (this) (is) (a) (cat)
+		 * " " ==> delimited by each string above
+		 * "(" and ")" are prefix and suffix of each string above
+		 */
+		System.out.println("================================covertListToStringByCharacter()=======================================");
+		covertListToStringByCharacter();
+		System.out.println();
+		
+		/*
+		 *  Compare String.split, StringUtils.split, StringUtils.splitPreserveAllTokens
+		 *  String.split : get empty string on the first loop
+		 *  StringUtils.split: get all empty String
+		 *  StringUtils.splitPreserveAllTokens doesn't get any empty String
+		 */
+		System.out.println("================================splitAdvance()=======================================");
+		splitAdvance();
+		System.out.println();
 		
 	}
 	
-	public static void myNumber() {
+	public static void comparePlusCharater() {
 		int a = 0;
 		System.out.println("a: " + a);
 		int b = a++;
@@ -33,8 +116,6 @@ public class TestString {
 		int d = ++c;
 		System.out.println("c: " + c);
 		System.out.println("d: " + d);
-		
-		
 		
 	}
 	public static void internString() {
@@ -62,17 +143,16 @@ public class TestString {
 		
 		long endTime0 = System.currentTimeMillis();
 		System.out.println("With Intern: " + (endTime0 - startTime0) + " milli seconds");
-		
-		
-
 
 	}
 	
 	public static void countTime() {
 		long startTime = System.currentTimeMillis();
+		String test = "";
 		for(int i = 0; i < 1000000; i++) {
-			String test = "test";
+			test = "test";
 		}
+		System.out.println("test: " + test);
 		long endTime = System.currentTimeMillis();
 		System.out.println((endTime - startTime) + " milli seconds");
 	}
@@ -84,6 +164,10 @@ public class TestString {
 		int numbertTest2 = test2.indexOf("w");
 		
 		// 5 is lengh of compared string
+		System.out.println("test1: " + test1);
+		System.out.println("test2: " + test2);
+		System.out.println("numbertTest1: " + numbertTest1);
+		System.out.println("numbertTest2: " + numbertTest2);
 		boolean match = test1.regionMatches(numbertTest1, test2, numbertTest2, 5);
 		System.out.println(match);
 	}
@@ -101,16 +185,9 @@ public class TestString {
 		
 		str = "jan.feb.march.april.may";
 		delimeter = "\\.";
-		temp = str.split(delimeter);
-		
+		temp = str.split(delimeter, 3);
 		for (int i = 0; i < temp.length; i++) {
-			System.out.println(temp[i]);
-			System.out.println("");
-			// limit n - 1 time
-			temp = str.split(delimeter, 3);
-			for (int j = 0; j < temp.length; j++) {
-				System.out.println(temp[j]);
-			}
+			System.out.println("temp[i] " + temp[i]);
 		}
 	}
 	public static void removeString() {
@@ -189,6 +266,7 @@ public class TestString {
 		String str = "test-abc-heheh";
 		
 		StringTokenizer st = new StringTokenizer(str, "-");
+		System.out.println("token: " + st);
 		String newStr = "";
 		while (st.hasMoreTokens()) {
 			newStr += st.nextToken();
@@ -243,17 +321,42 @@ public class TestString {
 		
 		// use any character
 		String useSpace = StringUtils.collectionToDelimitedString(list, " ");
-		System.out.println("Use space: " + useSpace);
+		System.out.println("Use space (collectionToDelimitedString): " + useSpace);
 		System.out.println();
 		
 		// use prefix and suffix
 		String useSpaceAndPrefixAndSuffix = StringUtils.collectionToDelimitedString(list, " ", "(", ")");
-		System.out.println("Use Space, Prefix And Suffix" + useSpaceAndPrefixAndSuffix);
+		System.out.println("Use Space (collectionToDelimitedString), Prefix And Suffix: " + useSpaceAndPrefixAndSuffix);
 		System.out.println();
 		
 		// use comma
 		String useComma= StringUtils.collectionToCommaDelimitedString(list);
-		System.out.println("Use comma: " + useComma);
+		System.out.println("Use comma (collectionToCommaDelimitedString): " + useComma);
 		System.out.println();
+	}
+	
+	public static void splitAdvance() {
+		String test1 = "-this-is-a-cat-";
+		String test2 = null;
+		
+		// Normal split does not handle with null value like test2
+		String[] test11 = test1.split("-");
+		for (String string : test11) {
+			System.out.println("Normal split: " + string);
+		}
+		
+		// Get all
+		System.out.println();
+		String[] test22 = org.apache.commons.lang3.StringUtils.splitPreserveAllTokens(test1, "-");
+		for (String string : test22) {
+			System.out.println("Advance splitPreserveAllTokens: " + string);
+		}
+		
+		// Not return empty value
+		System.out.println();
+		String[] test33 = org.apache.commons.lang3.StringUtils.split(test1, "-");
+		for (String string : test33) {
+			System.out.println("Advance split: " + string);
+		}
 	}
 }

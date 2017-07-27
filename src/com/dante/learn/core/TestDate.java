@@ -1,5 +1,6 @@
 package com.dante.learn.core;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,6 +8,13 @@ import java.util.Date;
 
 public class TestDate {
 	public static void main(String[] args) {
+		
+		Timestamp dateUpdated = new Timestamp(System.currentTimeMillis() - (60 * 60 * 1000));
+		System.out.println(dateUpdated);
+		
+	}
+	
+	public static void test() {
 		String str = "08/29/1991";
 		System.out.println("String: " + str);
 		
@@ -21,9 +29,7 @@ public class TestDate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-	
 	public static void convertStringToDate() throws ParseException {
 		String startDateString = "06/27/2007";
 		System.out.println("String: " + startDateString);

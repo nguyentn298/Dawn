@@ -1,10 +1,11 @@
-package com.dante.ws.demo;
+package com.dante.learn.xml;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
+import javax.xml.bind.annotation.XmlAccessType;
 
 @XmlRootElement(name = "user")
 public class User implements Serializable {
@@ -28,7 +29,7 @@ public class User implements Serializable {
 		return id;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -37,7 +38,7 @@ public class User implements Serializable {
 		return name;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -46,7 +47,7 @@ public class User implements Serializable {
 		return job;
 	}
 
-	@XmlElement
+//	@XmlElement
 	public void setJob(String job) {
 		this.job = job;
 	}

@@ -7,13 +7,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import com.dante.config.ApplicationContext;
 import com.dante.config.DawnPersistenceConfig;
 import com.dante.config.ResourcesConfig;
 import com.dante.service.IConfigurationManager;
 
 @Configuration
 @ComponentScan(basePackages = { "com.dante" })
-@Import({ DawnPersistenceConfig.class, ResourcesConfig.class })
+@Import({ DawnPersistenceConfig.class, ResourcesConfig.class})
 public class TestApplicationContext {
 
 	static final String TEST_LOG4J_FILE = "test-log4j.xml";

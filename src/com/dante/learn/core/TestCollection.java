@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class TestCollection {
 	public static void main(String[] args) {
@@ -17,7 +18,30 @@ public class TestCollection {
 //		testQueue();
 //		compareMap();
 //		joinList();
-		convertListToArray();
+//		convertListToArray();
+		
+//		Map<String, String> mapA = new HashMap<String, String>() {
+		Map<String, String> mapA = new TreeMap<String, String>() {
+			{
+				put("xyz", "Jarvan");
+				put("cde", "Garen");
+				put("abc", "Xinzhao");
+				put("hehe", "AAAA");
+			}
+		};
+		
+		System.out.println(mapA);
+		for (Map.Entry<String, String> element : mapA.entrySet()) {
+			System.out.println(element.getKey() + " - " + element.getValue());
+		}
+		
+		// check enum contans map
+//		for (OutputFileOption option : OutputFileOption.values()) {
+//			Boolean isExist = options.get(option);
+//			if(isExist == null) {
+//				options.put(option, false);
+//			}
+//		}
 	}
 	
 	public static void joinList() {
@@ -62,7 +86,6 @@ public class TestCollection {
 				put("5", "BBB");
 			}
 		};
-		
 		Set<String> keysInA = new HashSet<String>(mapA.keySet());
 		Set<String> keysInB = new HashSet<String>(mapB.keySet());
 		Set<String> inANotB = new HashSet<String>(keysInA);

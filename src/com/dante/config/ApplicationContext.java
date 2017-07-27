@@ -8,17 +8,14 @@ import org.springframework.context.annotation.Profile;
 
 import com.dante.web.config.WebMvcConfig;
 
-
-/**
- * @author Ken Duc
- */
 @Configuration
 @ComponentScan(
 		basePackages = { "com.dante" },
 		excludeFilters= {
 				@ComponentScan.Filter(type=FilterType.REGEX, pattern={"com.dante.web.*"})
 		})
-@Import({ ResourcesConfig.class, WebMvcConfig.class })
+//@Import({ ResourcesConfig.class, WebMvcConfig.class })
+@Import({ ResourcesConfig.class, WebMvcConfig.class})
 @Profile({ ProfileType.WEB })
 public class ApplicationContext {
 

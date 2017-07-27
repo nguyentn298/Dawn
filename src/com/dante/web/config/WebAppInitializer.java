@@ -15,6 +15,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import com.dante.config.ApplicationContext;
 import com.dante.config.CommonConstants;
+import com.dante.config.JmsConfig;
 import com.dante.config.ProfileType;
 import com.dante.config.SiteMeshFilter;
 
@@ -29,12 +30,12 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
 
+		// Set profile of @Profile to use
 		servletContext.setInitParameter(CommonConstants.SPRING_PROFILES_ACTIVE, ProfileType.WEB);
 		
 		// Create the 'root' Spring application context
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(ApplicationContext.class);
-
 		rootContext.setServletContext(servletContext);
 		
 		EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ERROR);
@@ -44,8 +45,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		// Manage the life-cycle of the root application context
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 		
-		Dynamic servlet = servletContext.addServlet("dispatcher",
-				new DispatcherServlet(rootContext));
+		Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(rootContext));
 		servlet.addMapping("/");
 		
 		// using for JBoss server, example: http://localhost:8080/Dawn/productSearch.sp

@@ -22,17 +22,6 @@ public class MyProducer {
 	JmsTemplate jmsTemplate;
 
 	static final Logger LOG = LoggerFactory.getLogger(MyProducer.class);
-//	public void sendMessage(final String queueName, final Product product) {
-//		System.out.println("Begin send message!!");
-//		jmsTemplate.send(queueName, new MessageCreator() {
-//			@Override
-//			public Message createMessage(Session session) throws JMSException {
-//				ObjectMessage objectMessage = session.createObjectMessage(product);
-//				return objectMessage;
-//			}
-//		});
-//		System.out.println("Finished send message!!");
-//	}
 	
 	public void sendMessage(final String queueName, final Object content) {
 		LOG.info("====== Begin sendMessage ========");

@@ -13,12 +13,15 @@ public class TestClass<T> {
 	public static void main(String[] args) {
 //		printClassName(new TestClass());
 		
-		TestClass test = new TestClass();
-		Map<String, String> map = test.getResource();
-		for (Entry<String, String> entry: map.entrySet()) {
-			System.out.println("key: " + entry.getKey() + " - " + "value: " + entry.getValue());
-		}
-		System.out.println();
+//		TestClass test = new TestClass();
+//		Map<String, String> map = test.getResource();
+//		for (Entry<String, String> entry: map.entrySet()) {
+//			System.out.println("key: " + entry.getKey() + " - " + "value: " + entry.getValue());
+//		}
+//		System.out.println();
+		
+		TestClass t = new TestClass();
+		t.getResource();
 	}
 	
 	public static void printClassName(Object obj) {
@@ -37,6 +40,7 @@ public class TestClass<T> {
 		
 		Properties properties = new Properties();
 		InputStream in =  getClass().getResourceAsStream("testClassConfig.properties");
+		System.out.println("getClass().getResourceAsStream: " + in);
 		try {
 //			if(null == in) {
 //				in = new FileInputStream("config.properties");
@@ -47,6 +51,7 @@ public class TestClass<T> {
 			for (Object entry : properties.keySet()) {
 				map.put(entry.toString(), properties.get(entry).toString());
 			}
+			System.out.println(map);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

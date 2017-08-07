@@ -1,7 +1,6 @@
 package com.dante.learn.jms.multiAMQ;
 
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,23 +22,9 @@ public class TestAMQ {
 	@Autowired
 	private MyProducer producer;
 	
-	@Autowired
-	private MyListener listener;
-	
-	private static AtomicInteger id = new AtomicInteger();
-	
-	public static Product getProduct() {
-		Product p = new Product();
-		p.setName("Product " + id.incrementAndGet());
-		p.setProductId(getUniqueId());
-		p.setQuantity(2);
-		
-		return p;
+	public static String getUniqueId() {
+		return UUID.randomUUID().toString();
 	}
-	
-	public static String getUniqueId(){
-        return UUID.randomUUID().toString();
-    }
 	
 	@Test
 	public void testSendMessage() {
@@ -52,7 +37,8 @@ public class TestAMQ {
 //			System.out.println("My bean: " + string);
 //		}
 		
-		producer.sendMessage("message-send-from-producer", "{'name': 'nguyen6'}");
+		producer.sendMessage("MyConsumer-receive", "are you MyConsumer1 ?");
+		producer.sendMessage("MyConsumer2-receive", "are you MyConsumer2 ?");
 		
 	}
 	

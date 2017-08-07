@@ -1,0 +1,45 @@
+<ehcache>
+	<diskStore path="java.io.tmpdir/dem" />
+	<defaultCache maxElementsInMemory="50" eternal="false"
+		overflowToDisk="true" timeToIdleSeconds="86400" timeToLiveSeconds="86400" />
+
+	<!-- Please see CacheConstants to define correct cache name which will be 
+		used in code also -->
+	<cache name="site.global.cache" maxElementsInMemory="500"
+		eternal="true" />
+
+	<cache name="UserRepository.findByEmailWithCache.cache"
+		maxElementsInMemory="500" 
+		eternal="true"
+		overflowToDisk="false"/>
+
+	<cache name="UserRepository.findOneWithCache.cache"
+		maxElementsInMemory="500" 
+		eternal="true"
+		overflowToDisk="false"/>
+
+	<cache name="DemDocumentStatusRepository.findByDescriptionWithCache.cache"
+		maxElementsInMemory="20" 
+		eternal="true"
+		overflowToDisk="false"/>
+
+	<cache name="DemDocumentStatusRepository.findOneWithCache.cache"
+		maxElementsInMemory="20" 
+		eternal="true"
+		overflowToDisk="false"/>
+		
+	<cache name="DemErrorTypeRepository.findByNameWithCache.cache"
+		maxElementsInMemory="500" 
+		eternal="true"
+		overflowToDisk="false"/>
+
+	<cache name="AutomationTypeRepository.findByIdWithCache.cache"
+		maxElementsInMemory="20" 
+		eternal="true"
+		overflowToDisk="false"/>
+
+	<cache name="AutomationTypeRepository.findByAbbreviationWithCache.cache"
+		maxElementsInMemory="20" 
+		eternal="true"
+		overflowToDisk="false"/>		
+</ehcache>

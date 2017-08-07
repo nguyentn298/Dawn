@@ -10,15 +10,18 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LogController {
 	
+	/**
+	 * Config at log4j.properties
+	 * Config multi log at LogUtil
+	 */
 	private static final Logger logger = Logger.getLogger(LogController.class);
-
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String myString(Model model) {
 		model.addAttribute("test123", "This is my test with model map 123");
 		logger.info("Test log info");
 		logger.warn("Test log warn");
 		
-
 		return "view";
 	}
 
@@ -47,4 +50,7 @@ public class LogController {
 		
 	}
 
+	public static void main(String[] args) {
+		logger.info("========== Test 2 =============");
+	}
 }

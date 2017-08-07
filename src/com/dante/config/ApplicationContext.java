@@ -15,7 +15,7 @@ import com.dante.web.config.WebMvcConfig;
 				@ComponentScan.Filter(type=FilterType.REGEX, pattern={"com.dante.web.*"})
 		})
 //@Import({ ResourcesConfig.class, WebMvcConfig.class })
-@Import({ ResourcesConfig.class, WebMvcConfig.class})
+@Import({ ResourcesConfig.class, WebMvcConfig.class, CachingConfig.class})
 @Profile({ ProfileType.WEB })
 public class ApplicationContext {
 

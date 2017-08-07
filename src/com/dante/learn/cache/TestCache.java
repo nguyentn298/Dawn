@@ -47,32 +47,47 @@ public class TestCache {
 		
 	}
 
+	/**
+	 * Cache [name, key, value]
+	 * 1 name has a pair of key and value
+	 * Example: 
+	 * 		name: testCache2
+	 * 		key: myTestKey
+	 * 		value: This operator of testCache222 successful!!!
+	 */
 	@Test
 	public void testCache() {
 		System.out.println("Begin cache");
 		
+		/**
+		 * Test without key
+		 */
 		log.info("test --> " + testCache.testCache());
 		log.info("test --> " + testCache.testCache());
 		log.info("test --> " + testCache.testCache());
 		
+		/**
+		 * Test with key
+		 */
 		log.info("test --> " + testCache.testCache2("myTestKey"));
 		log.info("test --> " + testCache.testCache2("myTestKey"));
 		log.info("test --> " + testCache.testCache2("myTestKey"));
 		
-		
-		
-//		System.out.println("Get cache: " + cacheManager.getCache("testCache").get(0)); 
-//		System.out.println("My cache name: "+ cacheManager.getCacheNames());
-//		cacheManager.getCache("").g
 //		testCache.refreshAllProducts();
+		Object result = null;
 		
-		Object result = "";
-		String[] names = cacheManager.getCacheNames();
 		CacheHelper helper = new CacheHelper();
+		
+//		helper.clearAllCache(cacheManager);
+		
 		System.out.println("Begin getValueFromCache");
+		
+		String key = "myTestKey";
+		String[] names = cacheManager.getCacheNames();
 		for (String name : names) {
-			result = helper.getValueFromCache(name, "myTestKey", cacheManager);
+			result = helper.getValueFromCache(name, key, cacheManager);
 		}
+		
 		System.out.println("Finished getValueFromCache!!");
 		
 		log.info("test --> " + testCache.testCache());

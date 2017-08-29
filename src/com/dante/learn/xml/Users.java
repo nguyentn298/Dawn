@@ -1,6 +1,5 @@
 package com.dante.learn.xml;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -12,10 +11,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Users {
 	/*
+	 * <> XmlAccessType (PUBLIC_MEMBER, PROPERTY, FIELD, or NONE)
 	 * XmlAccessType.PUBLIC_MEMBER : Allow public field has @XmlElement
-	 * XmlAccessType.PROPERTY
+	 * XmlAccessType.PROPERTY: 	public fields
+								annotated fields
+								properties
 	 */
-	@XmlElement(name = "user")
+//	@XmlElement(name = "user")
 	private List<User> mylist = null;
 
 	public List<User> getMyList() {

@@ -37,7 +37,7 @@ public class TestCache {
 	TestNoCacheService testNoCache;
 	
 	@Autowired
-	CacheManager cacheManager;
+	CacheHelper cacheHelper;
 	
 	@Test
 	public void testNocache() {
@@ -76,16 +76,17 @@ public class TestCache {
 //		testCache.refreshAllProducts();
 		Object result = null;
 		
-		CacheHelper helper = new CacheHelper();
 		
 //		helper.clearAllCache(cacheManager);
 		
 		System.out.println("Begin getValueFromCache");
 		
 		String key = "myTestKey";
-		String[] names = cacheManager.getCacheNames();
+		
+		
+		String[] names = cacheHelper.getCacheManager().getCacheNames();
 		for (String name : names) {
-			result = helper.getValueFromCache(name, key, cacheManager);
+			result = cacheHelper.getValueFromCache(name, key);
 		}
 		
 		System.out.println("Finished getValueFromCache!!");

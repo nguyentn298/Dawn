@@ -1,4 +1,4 @@
-package com.dante.learn.pattern.factory;
+package com.dante.learn.pattern.creation.factory;
 
 public class TestNoFactory {
 	public static void main(String[] args) {

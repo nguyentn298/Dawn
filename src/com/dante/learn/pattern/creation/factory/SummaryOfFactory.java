@@ -1,4 +1,4 @@
-package com.dante.learn.pattern.factory;
+package com.dante.learn.pattern.creation.factory;
 
 public class SummaryOfFactory {
 	/**
@@ -17,6 +17,7 @@ public class SummaryOfFactory {
 	 * Case to apply:
 	 * 1/ I'm a customer of ACB bank and i want to withDraw my money at ATM
 	 * 2/ What do i want?
-	 * 3/ Any ATM or ATM of ACB bank
+	 * 3/ Any ATM or ATM of ACB bank 
+	 * ==> of course, it's any ATM, becasu i can find arbitrary ATM and withdraw there. I don't want to find ACB bank because maybe it's so far away from my house
 	 */
 }

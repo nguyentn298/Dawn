@@ -21,7 +21,7 @@ public class TestEncapsulation {
 		car1.isReverse = false;
 
 		 /**
-		  * Sensible
+		  * Sensible: USER CANNOT UPDATE speed (private field), USER HAS JUST USED method to update by developer's idea. 
 		  */
 		
 		CarWithEncapsulation car2 = new CarWithEncapsulation();
@@ -36,11 +36,6 @@ public class TestEncapsulation {
 	}
 }
 
-/**
- * Another example of the encapsulation is BankAccount. 
- * Clients cannot directly access balance of the account. 
- * The access is controlled via methods like checkBalance(), deposit(), withdraw().
- */
 class Car {
 	public float speed =0;
 	public boolean isReverse = false;
@@ -48,6 +43,29 @@ class Car {
 }
 
 class CarWithEncapsulation {
+	
+	/* 
+	 * ===================================== ENCAPSULATION ================================================================================================
+	 * 
+	 * Encapsulation relate to Access modifier (public , default, protected, private)
+	 * PRIVATE FIELD must be store inside a method (example set or get)
+	 * Example: 
+			public void accelerate() {
+				if (isStarted) {
+					speed += 10;
+				} else {
+					// car is not started yet
+				}
+			}
+	 * private isStarted and speed is ONLY working on accelerate() method
+	 * Client do not know what happen in accelerate() method with isStarted (true) and speed (+=10)
+	 * it must be executed in it's OWN METHOD.
+	 * 
+	 * Another EXAMPLE of the encapsulation is BankAccount. 
+	 * Clients cannot directly access balance of the account. (balance is the PRIVATE FIELD)
+	 * The access is controlled via methods like checkBalance(), deposit(), withdraw() method.
+	 */
+	
 	private float speed = 0;
 	private boolean isReverse = false;
 	private boolean isStarted = false;

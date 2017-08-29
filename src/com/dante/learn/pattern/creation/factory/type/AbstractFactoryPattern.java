@@ -1,4 +1,4 @@
-package com.dante.learn.pattern.factory.factoryType;
+package com.dante.learn.pattern.creation.factory.type;
 
 public class AbstractFactoryPattern {
 	public static void main(String[] args) {

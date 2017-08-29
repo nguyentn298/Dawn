@@ -27,24 +27,19 @@ public class ConvertXML {
 		User user = new User(1, "nguyen", "gamer");
 		User user2 = new User(2, "nguyen22", "gamer222");
 		
-		Users listUsers = new Users();
-		listUsers.setMyList(new ArrayList<User>());
+//		Users listUsers = new Users();
+//		listUsers.setMyList(new ArrayList<User>());
+//		listUsers.getMyList().add(user);
+//		listUsers.getMyList().add(user2);
 		
-		
-//		List<User> users = list.getList();
-//		users.add(user);
-//		users.add(user2);
-		
-		listUsers.getMyList().add(user);
-		listUsers.getMyList().add(user2);
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
 			Marshaller jaxbMarshall = jaxbContext.createMarshaller();
 
 			jaxbMarshall.setProperty(jaxbMarshall.JAXB_FORMATTED_OUTPUT, true);
 
-			jaxbMarshall.marshal(listUsers, file);
-			jaxbMarshall.marshal(listUsers, System.out);
+			jaxbMarshall.marshal(user, file);
+			jaxbMarshall.marshal(user, System.out);
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

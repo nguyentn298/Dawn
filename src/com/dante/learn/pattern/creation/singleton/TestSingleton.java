@@ -1,4 +1,4 @@
-package com.dante.learn.pattern.singleton;
+package com.dante.learn.pattern.creation.singleton;
 
 public class TestSingleton {
 	public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class TestSingleton {
 		System.out.println("id: " + p2.getId());
 		System.out.println("name: " + p2.getName());
 		
-		// p3 not set any property, but still have value of p2
+		// p3 not set any property, but still have same value with p2 above
 		Product p3 = Product.getInstance();
 		System.out.println("id: " + p3.getId());
 		System.out.println("name: " + p3.getName());
@@ -31,11 +31,15 @@ class Product {
 	private int id;
 	private String name;
 	
+	// private, no public
 	private static Product instance = new Product();
 	
+	// public here to get object
 	public static Product getInstance() {
 		return instance;
 	}
+	
+	// private, no public
 	private Product() {
 		
 	}

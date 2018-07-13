@@ -1,0 +1,23 @@
+1/ ExecutorService executor = Executors.newFixedThreadPool(20);
+
+same as
+
+ return new ThreadPoolExecutor(20, 20, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
+ 2/ 
+- Single Thread Executor: A thread pool with only one thread. All the submitted tasks will be executed sequentially. 
+Method: Executors.newSingleThreadExecutor()
+
+- Cached Thread Pool: A thread pool that creates as many threads as it needs to execute the tasks in parallel. 
+The old available threads are reused for the new tasks. 
+Method: Executors.newCachedThreadPool()
+
+- Fixed Thread Pool: A thread pool with a fixed number of threads. 
+If a thread is not available for the task, the task is put into a queue until another task ends and frees up a thread. 
+Method: Executors.newFixedThreadPool()
+
+- Scheduled Thread Pool: A thread pool made to schedule future tasks. 
+Method: Executors.newScheduledThreadPool()
+
+- Single Thread Scheduled Pool: A thread pool with only one thread to schedule a future task. 
+Method: Executors.newSingleThreadScheduledExecutor()
+ 

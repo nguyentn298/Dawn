@@ -1,0 +1,6 @@
+- HSSF is prefixed before the class name to indicate operations related to a Microsoft Excel 2003 file.
+- XSSF is prefixed before the class name to indicate operations related to a Microsoft Excel 2007 file or later.
+- XSSFWorkbook and HSSFWorkbook are classes which act as an Excel Workbook
+- HSSFSheet and XSSFSheet are classes which act as an Excel Worksheet
+- Row defines an Excel row
+- Cell defines an Excel cell addressed in reference to a row.

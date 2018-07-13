@@ -1,0 +1,7 @@
+1/ @RunWith(SpringJUnit4ClassRunner.class):		the runner is essentially the entry-point to start using the Spring Test framework.
+
+2/ @ContextConfiguration:						load the context configuration and bootstrap the context that the test will use.
+
+3/ @WebAppConfiguration:						we’ll usually find this annotation in integration tests because the WebApplicationContext is used to build a MockMvc object:
+	By default, it looks for the root web application at default path src/main/webapp; the location can be overridden by passing value argument as:
+	@WebAppConfiguration(value = "classpath:test-web-resources")

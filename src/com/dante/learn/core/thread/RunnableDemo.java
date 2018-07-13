@@ -13,7 +13,7 @@ public class RunnableDemo implements Runnable {
 			if (height < 2)
 				height += 2;
 
-			draw(width, height);
+			drawOptimize(width, height);
 //		}
 	}
 
@@ -32,7 +32,7 @@ public class RunnableDemo implements Runnable {
 	private void draw(int width, int height) {
 		for (int c = 0; c < width; c++)
 			System.out.print('*');
-
+		
 		System.out.print('\n');
 
 		for (int r = 0; r < height - 2; r++) {
@@ -50,6 +50,15 @@ public class RunnableDemo implements Runnable {
 			System.out.print('*');
 
 		System.out.print('\n');
+	}
+	
+	private void drawOptimize(int width, int height) {
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++) {
+				System.out.print("*");
+			}
+			System.out.print("\n");
+		}
 	}
 
 	private int randoomNumber(int limit) {

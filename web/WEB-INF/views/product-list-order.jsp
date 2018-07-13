@@ -99,10 +99,10 @@ ua' ban<head>
 							<c:url var="pageUrl" value="/pages/${i}" />
 								<c:choose>
 									<c:when test="${i == currentIndex}">
-									<li class="active"><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+										<li class="active"><a href="${pageUrl}"><c:out value="${i}" /></a></li>
 									</c:when>
 									<c:otherwise>
-									<li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+										<li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
 									</c:otherwise>
 								</c:choose>
 						</c:forEach>

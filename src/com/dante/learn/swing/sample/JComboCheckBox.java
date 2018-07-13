@@ -12,7 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.collections4.map.HashedMap;
+
 
 @SuppressWarnings("rawtypes")
 public class JComboCheckBox extends JComboBox {

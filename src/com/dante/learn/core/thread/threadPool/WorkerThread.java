@@ -8,13 +8,13 @@ public class WorkerThread implements Runnable {
 	}
 
 	public void run() {
-		System.out.println(Thread.currentThread().getName()
-				+ " (Start) message = " + message);
+		System.out.println(Thread.currentThread().getName() + " (Start) message = " + message);
 		
 		// call processmessage method that sleeps the thread for 2 seconds
 		processmessage();
 		
 		// prints thread name
+		System.out.println();
 		System.out.println(Thread.currentThread().getName() + " (End)");
 	}
 

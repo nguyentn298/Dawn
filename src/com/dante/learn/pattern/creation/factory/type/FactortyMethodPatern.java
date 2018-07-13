@@ -26,13 +26,13 @@ interface Car {
 
 class Mustang implements Car {
 	public void drive() {
-		// some stuff
+		System.out.println("I'm Mustang");
 	}
 }
 
 class Ferrari implements Car {
 	public void drive() {
-		// some stuff
+		System.out.println("I'm ferrari");
 	}
 }
 

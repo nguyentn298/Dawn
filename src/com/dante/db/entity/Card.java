@@ -3,8 +3,6 @@ package com.dante.db.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +15,6 @@ import javax.persistence.Table;
 @Table(name = "card")
 public class Card {
 
-	@Access(AccessType.PROPERTY)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "CARD_ID")

@@ -4,6 +4,8 @@ package com.dante.learn.core;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.Test;
+
 public class TestRegex {
 
 	public static void main (String args[]) {
@@ -74,5 +76,19 @@ public class TestRegex {
 		}
 		
 		return loanNumber;
+	}
+	
+	@Test
+	public void testOperator() {
+		Pattern p = Pattern.compile(".*@.*[.]//d");
+		Matcher matchmaker = p.matcher("test@abc.com");
+		
+		if (matchmaker.matches()) {
+			System.out.println(matchmaker.group(0));
+		} else {
+			System.out.println("Fail");
+		}
+		
+		
 	}
 }

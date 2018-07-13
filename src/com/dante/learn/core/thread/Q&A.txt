@@ -1,8 +1,44 @@
 1/ What happens if we call the run() method instead of start() method
 
-Because start() will do it as a separate thread. If you were to just call run(), that would be part of your thread (i.e., a function call).
+	Because start() will do it as a separate thread. If you were to just call run(), that would be part of your thread (i.e., a function call).
 
 And, given that your thread may be an infinite loop waiting for work, that would be a bad thing.
 2/ Difference of extends Thread and implements Runnable:
-	* Inheritance
-	* Share work (check ThreadVsRunnable.java for more information)
+		* Inheritance
+		* Share work (check ThreadVsRunnable.java for more information)
+			- View detail in RunnableAndThread.java
+	
+3/ Use this map for thread-safe:
+	Map m = Collections.synchronizedMap(new HashMap(...)); OR Map<String, Double> balance = new ConcurrentHashMap<String, Double> ();
+	
+	NOTE: Hashmap is not syncronized but Hastable is syncronized. 
+	However, HashTable is obsolete and its performance will be quite poor in a highly concurrent environment due to the thread-safety mechanism 
+	that is implemented (all methods are synchronized) and the provided iterators are not thread safe and will fail if you modify the table while iterating.
+	
+	Hashtable and ConcurrentHashMap do not allow null keys or null values.
+
+4/ fail-fast: In Java, we can find this behavior with iterators.
+	Incase, you have called iterator on a collection object, and another
+	thread tries to modify the collection object, then concurrent modification
+	exception will be thrown. This is called fail-fast.
+
+5/ The difference between Collections.synchronizedMap and ConcurrentHashMap:
+
+	The main difference between these two is that ConcurrentHashMap will lock only portion of the data which are being updated while other portion of data can be accessed by other threads. 
+	However, Collections.synchronizedMap() will lock all the data while updating, other threads can only access the data when the lock is released. 
+	If there are many update operations and relative small amount of read operations, you should choose ConcurrentHashMap.
+	
+	Also one other difference is that ConcurrentHashMap will not preserve the order of elements in the Map passed in. 
+	It is similar to HashMap when storing data. There is no guarantee that the element order is preserved. 
+	While Collections.synchronizedMap() will preserve the elements order of the Map passed in. 
+	For example, if you pass a TreeMap to ConcurrentHashMap, the elements order in the ConcurrentHashMap may not be the same as the order in the TreeMap, 
+	but Collections.synchronizedMap() will preserve the order.
+	
+	Furthermore, ConcurrentHashMap can guarantee that there is no ConcurrentModificationException thrown while one thread is updating the map and another thread is traversing the iterator obtained from the map. 
+	However, Collections.synchronizedMap() is not guaranteed on this.
+	
+	There is one post which demonstrate the differences of these two and also the ConcurrentSkipListMap.
+	
+6/ The deffirence between submit() and execute() of ThreadPoolExecutor:
+
+	The difference is that execute doesn't return a Future, so you can't wait for the completion of the Runnable and get any exception it throws using that.

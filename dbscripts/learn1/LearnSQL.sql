@@ -20,3 +20,10 @@ FROM menu_item_temp
 WHERE `NAME` NOT IN (SELECT `NAME` FROM menu_item);	
 
 DROP TABLE IF EXISTS menu_item_temp;
+
+/* Find a column of every table in specific db */
+
+SELECT DISTINCT TABLE_NAME 
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE COLUMN_NAME IN ('LOAN_NUMBER')
+        AND TABLE_SCHEMA='aklero_idea_db_2_17_1';

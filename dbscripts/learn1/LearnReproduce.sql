@@ -36,7 +36,7 @@ DELIMITER ;;
 		END IF;
 		
 		/* Modify column If exists */
-		IF EXISTS(SELECT * FROM information_schema.COLUMNS WHERE TABLE_NAME = 'card' AND COLUMN_NAME = 'TYPE' AND TABLE_SCHEMA = @TableSchema) THEN
+		IF EXISTS(SELECT * FROM information_schema.COLUMNS WHERE TABLE_NAME = 'card' AND COLUMN_NAME = 'TYPE' AND TABLE_SCHEMA = @TableSchema AND COLUMN_TYPE = 'varchar(50)') THEN
 			ALTER TABLE `card` MODIFY `TYPE` VARCHAR(100);
 		END IF;
 

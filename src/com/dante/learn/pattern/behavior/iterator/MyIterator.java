@@ -5,6 +5,8 @@ import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Iterator;
 
+import com.dante.learn.pattern.behavior.iterator.channel.Channel;
+
 public class MyIterator {
 	public static void main(String[] args) {
 		
@@ -26,11 +28,12 @@ public class MyIterator {
 		 * } else
 		 * 		return false;
 		 * =====================================================================
-		 * 		==> next() like this: <== (get element from hasNext() condition above)
-		 * if(this.hasNext()) {
-		 * 		return names[index++];
-		 * } else
-		 * 		return null
+		 * 		==> next() like this: 
+			public Channel next() {
+				Channel c = names.get(index);
+				index++;
+				return c;
+			}
 		 */
 	}
 	

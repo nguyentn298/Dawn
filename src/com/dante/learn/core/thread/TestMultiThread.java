@@ -2,60 +2,33 @@ package com.dante.learn.core.thread;
 
 public class TestMultiThread {
 	public static void main(String[] args) {
-		System.out.println();
+		joinTest();
+	}
+	
+	public static void joinTest() {
+		Thread t1 = new FirstThread();
+		Thread t2 = new SecondThread();
 		
-		firstThread ft = new firstThread();
-		secondThread st = new secondThread();
+		t1.start();
+		try {
+			// Use join() to execute current Thread until finish
+			System.out.println("Start Joinning of Thread 1");
+			t1.join();
+			System.out.println("Finish Joinning of Thread 1");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		firstThread ft2 = new firstThread();
-		ft.start();
-		ft2.start();
-		
-		
-//		try {
-//			ft.join();
-//		} catch (InterruptedException e1) {
-//			e1.printStackTrace();
-//		}
-		// using sleep() when run parallel another thread
-//		while(ft.isAlive()) {
-//			try {
-//				System.out.println("Main Thread is slept");
-//				Thread.sleep(1500);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		String result = "";
-//		for(int i = 0; i < 10; i++) {
-//			try {
-//				for(int k = 0; k < 10; k++) {
-//					System.out.print(" ");
-//				}
-//				System.out.println("|");
-//				Thread.sleep(500);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//			
-//			
-//		}
-//		
-//		st.start();
-//		try {
-//			st.join();
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println("Done!!!");
-		
+		// Next thread will be started after previous thread finish.
+		t2.start();
 	}
 }
 
-class firstThread extends Thread{
+class FirstThread extends Thread{
 	
-	public firstThread() {
-		super("my extending thread ");
+	public FirstThread() {
+		super("FirstThread ");
 		System.out.println("my thread created " + this);
 	}
 	
@@ -64,7 +37,7 @@ class firstThread extends Thread{
 		String result = "";
 		for(int i = 0; i < 11; i++) {
 			try {
-				System.out.print("*");
+				System.out.println("Thread 1: " + i);
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -76,12 +49,17 @@ class firstThread extends Thread{
 	}
 }
 
-class secondThread extends Thread{
+class SecondThread extends Thread{
+	
+	public SecondThread() {
+		super("SecondThread ");
+		System.out.println("my thread created " + this);
+	}
 	public void run() {
 		String result = "";
 		for(int i = 0; i < 11; i++) {
 			try {
-				System.out.print("*");
+				System.out.println("Thread 2: " + i);
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

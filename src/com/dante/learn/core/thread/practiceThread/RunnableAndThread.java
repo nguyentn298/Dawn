@@ -5,7 +5,7 @@ public class RunnableAndThread {
 		System.out.println("My Runnable: ");
 		
 		// Share work
-		myRunnable r = new myRunnable();
+		MyRunnable r = new MyRunnable();
 		Thread r1 = new Thread(r);
 		Thread r2 = new Thread(r);
 		Thread r3 = new Thread(r);
@@ -22,9 +22,9 @@ public class RunnableAndThread {
 		System.out.println("My Thread: ");
 		
 		// No share
-		MyThread t1 = new MyThread();
-		MyThread t2 = new MyThread();
-		MyThread t3 = new MyThread();
+		Thread t1 = new MyThread();
+		Thread t2 = new MyThread();
+		Thread t3 = new MyThread();
 		
 		t1.start();
 		Thread.sleep(1000);
@@ -45,7 +45,7 @@ class MyThread extends Thread {
 	}
 }
 
-class myRunnable implements Runnable{
+class MyRunnable implements Runnable{
 	int count;
 	@Override
 	public void run() {
